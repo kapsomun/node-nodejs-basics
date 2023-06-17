@@ -1,6 +1,6 @@
-import { access, rename as fsRename, constants } from "node:fs/promises";
+import { access, rename as fsRename, constants } from "fs/promises";
 import { dirname } from "path";
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 
 const currentFilePath = fileURLToPath(import.meta.url);
 const currentDirPath = dirname(currentFilePath);

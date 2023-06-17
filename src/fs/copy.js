@@ -1,6 +1,6 @@
 import { readdir, mkdir, copyFile } from "fs/promises";
 import { join, dirname } from "path";
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 
 const currentFilePath = fileURLToPath(import.meta.url);
 const currentDirPath = dirname(currentFilePath);
