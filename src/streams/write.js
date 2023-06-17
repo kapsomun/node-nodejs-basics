@@ -2,13 +2,13 @@ import fs from 'fs/promises';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const currentFilePath = fileURLToPath(import.meta.url);
-const currentDirPath = dirname(currentFilePath);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const write = async () => {
 
     try {
-        const fileHandle = await fs.open(`${currentDirPath}/files/fileToWrite.txt`, 'w');
+        const fileHandle = await fs.open(`${__dirname}/files/fileToWrite.txt`, 'w');
         const writeStream = fileHandle.createWriteStream();
         process.stdin.pipe(writeStream);
 

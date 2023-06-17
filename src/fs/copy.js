@@ -2,16 +2,16 @@ import { readdir, mkdir, copyFile } from "fs/promises";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
-const currentFilePath = fileURLToPath(import.meta.url);
-const currentDirPath = dirname(currentFilePath);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const copy = async () => {
   try {
-    await mkdir(`${currentDirPath}/files_copy/`);
-    const files = await readdir(`${currentDirPath}/files`);
+    await mkdir(`${__dirname}/files_copy/`);
+    const files = await readdir(`${__dirname}/files`);
     for (const file of files) {
-      const sourceFile = join(`${currentDirPath}/files/`, file);
-      const destinationFile = join(`${currentDirPath}/files_copy/`, file);
+      const sourceFile = join(`${__dirname}/files/`, file);
+      const destinationFile = join(`${__dirname}/files_copy/`, file);
 
       await copyFile(sourceFile, destinationFile);
       console.log(`File ${sourceFile} copied to ${destinationFile}`);
